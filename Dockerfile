@@ -12,6 +12,9 @@ FROM node:18-alpine AS production
 
 WORKDIR /app
 
+# Ensure crypto is available
+RUN apk add --no-cache openssl
+
 COPY package*.json ./
 RUN npm ci --only=production && npm cache clean --force
 

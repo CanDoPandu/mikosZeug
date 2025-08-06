@@ -25,6 +25,7 @@ import { UsersModule } from './users/users.module';
             synchronize: configService.get('NODE_ENV') !== 'production',
             logging: configService.get('NODE_ENV') !== 'production',
             ssl: configService.get('NODE_ENV') === 'production' ? { rejectUnauthorized: false } : false,
+            name: 'default', // Explicitly set connection name
           };
         } else {
           // Local development - use individual parameters
@@ -38,6 +39,7 @@ import { UsersModule } from './users/users.module';
             entities: [__dirname + '/**/*.entity{.ts,.js}'],
             synchronize: configService.get('NODE_ENV') !== 'production',
             logging: configService.get('NODE_ENV') !== 'production',
+            name: 'default', // Explicitly set connection name
           };
         }
       },
