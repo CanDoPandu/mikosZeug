@@ -24,29 +24,37 @@ export class UsersService {
   }
 
   async seedSampleData(): Promise<void> {
-    const existingUsers = await this.usersRepository.count();
-    if (existingUsers === 0) {
-      const sampleUsers = [
-        {
-          email: 'john.doe@example.com',
-          firstName: 'John',
-          lastName: 'Doe',
-        },
-        {
-          email: 'jane.smith@example.com',
-          firstName: 'Jane',
-          lastName: 'Smith',
-        },
-        {
-          email: 'mike.wilson@example.com',
-          firstName: 'Mike',
-          lastName: 'Wilson',
-        },
-      ];
+    try {
+      const existingUsers = await this.usersRepository.count();
+      if (existingUsers === 0) {
+        const sampleUsers = [
+          {
+            email: 'john.doe@example.com',
+            firstName: 'John',
+            lastName: 'Doe',
+          },
+          {
+            email: 'jane.smith@example.com',
+            firstName: 'Jane',
+            lastName: 'Smith',
+          },
+          {
+            email: 'mike.wilson@example.com',
+            firstName: 'Mike',
+            lastName: 'Wilson',
+          },
+        ];
 
-      for (const userData of sampleUsers) {
-        await this.create(userData);
+        for (const userData of sampleUsers) {
+          await this.create(userData);
+        }
+        console.log(`🌱 Seeded ${sampleUsers.length} sample users`);
+      } else {
+        console.log(`📊 Database already has ${existingUsers} users`);
       }
+    } catch (error) {
+      console.error('🚨 Error during seeding:', error);
+      throw error;
     }
   }
 }
