@@ -5,9 +5,9 @@ services:
     image: postgres:15-alpine
     container_name: nestjs-postgres-dev
     environment:
-      POSTGRES_DB: nestjs_db
+      POSTGRES_DB: railway
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password123
+      POSTGRES_PASSWORD: XmCxoESLvTcruVRfKmmvNerGVxwQLxlr
     ports:
       - "5432:5432"
     volumes:

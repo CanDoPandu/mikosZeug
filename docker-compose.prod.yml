@@ -5,9 +5,9 @@ services:
     image: postgres:15-alpine
     container_name: nestjs-postgres-prod
     environment:
-      POSTGRES_DB: nestjs_db
+      POSTGRES_DB: railway
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password123
+      POSTGRES_PASSWORD: XmCxoESLvTcruVRfKmmvNerGVxwQLxlr
     ports:
       - "5432:5432"
     volumes:
@@ -27,18 +27,21 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: production
-      # Railway-style environment variables
+      # Railway-style environment variables (matching Railway PostgreSQL)
       PGHOST: postgres
       PGPORT: 5432
       PGUSER: postgres
-      PGPASSWORD: password123
-      PGDATABASE: nestjs_db
+      PGPASSWORD: XmCxoESLvTcruVRfKmmvNerGVxwQLxlr
+      PGDATABASE: railway
+      POSTGRES_DB: railway
+      POSTGRES_PASSWORD: XmCxoESLvTcruVRfKmmvNerGVxwQLxlr
+      POSTGRES_USER: postgres
       # Fallback to old-style for compatibility
       DB_HOST: postgres
       DB_PORT: 5432
       DB_USERNAME: postgres
-      DB_PASSWORD: password123
-      DB_DATABASE: nestjs_db
+      DB_PASSWORD: XmCxoESLvTcruVRfKmmvNerGVxwQLxlr
+      DB_DATABASE: railway
     depends_on:
       postgres:
         condition: service_healthy

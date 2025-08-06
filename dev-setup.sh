@@ -26,9 +26,9 @@ done
 
 echo -e "${GREEN}✅ PostgreSQL is ready!${NC}"
 echo -e "${GREEN}🌐 PostgreSQL available at localhost:5432${NC}"
-echo -e "${GREEN}📋 Database: nestjs_db${NC}"
+echo -e "${GREEN}📋 Database: railway${NC}"
 echo -e "${GREEN}👤 Username: postgres${NC}"
-echo -e "${GREEN}🔑 Password: password123${NC}"
+echo -e "${GREEN}🔑 Password: XmCxoESLvTcruVRfKmmvNerGVxwQLxlr${NC}"
 
 echo -e "${YELLOW}💡 To start your NestJS app:${NC}"
 echo -e "  npm run start:dev"
