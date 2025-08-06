@@ -1,11 +1,9 @@
+// Setup crypto polyfill before any imports
+import { setupCryptoPolyfill } from './crypto-polyfill';
+setupCryptoPolyfill();
+
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-
-// Ensure crypto is available globally for TypeORM
-if (typeof globalThis.crypto === 'undefined') {
-  const { webcrypto } = eval('require')('crypto');
-  globalThis.crypto = webcrypto;
-}
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
