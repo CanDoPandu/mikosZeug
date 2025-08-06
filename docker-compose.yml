@@ -25,6 +25,13 @@ services:
     container_name: nestjs-backend
     environment:
       NODE_ENV: production
+      # Railway-style environment variables
+      PGHOST: postgres
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: password123
+      PGDATABASE: nestjs_db
+      # Fallback to old-style for compatibility
       DB_HOST: postgres
       DB_PORT: 5432
       DB_USERNAME: postgres
